@@ -1,43 +1,43 @@
-#define pin1 A5
-#define led1 A4
-#define pin2 2
+#define pin1 2
+#define pin2 4
+#define pin3 6
+#define pin4 8
+#define pin5 10
+#define pin6 12
+#define pin7 A0
+#define pin8 A2
+#define pin9 A4
+
+#define led1 3
 #define led2 5
-#define pin3 4
 #define led3 7
-#define pin4 6
 #define led4 9
-#define pin5 8
-
 #define led5 11
-#define pin6 3
-#define led6 10
-#define pin7 A1
-#define led7 A0
-#define pin8 A3
-#define led8 A2
-#define pin9 13
-#define led9 12
-
+#define led6 13
+#define led7 A1
+#define led8 A3
+#define led9 A5
 
 void setup() {
   Serial.begin(38400);
   pinMode(pin1, INPUT_PULLUP);
-  pinMode(led1, OUTPUT);
   pinMode(pin2, INPUT_PULLUP);
-  pinMode(led2, OUTPUT);
   pinMode(pin3, INPUT_PULLUP);
-  pinMode(led3, OUTPUT);
   pinMode(pin4, INPUT_PULLUP);
-  pinMode(led4, OUTPUT);
   pinMode(pin5, INPUT_PULLUP);
-  pinMode(led5, OUTPUT);
   pinMode(pin6, INPUT_PULLUP);
-  pinMode(led6, OUTPUT);
   pinMode(pin7, INPUT_PULLUP);
-  pinMode(led7, OUTPUT);
   pinMode(pin8, INPUT_PULLUP);
-  pinMode(led8, OUTPUT);
   pinMode(pin9, INPUT_PULLUP);
+  
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  pinMode(led4, OUTPUT);
+  pinMode(led5, OUTPUT);
+  pinMode(led6, OUTPUT);
+  pinMode(led7, OUTPUT);
+  pinMode(led8, OUTPUT);
   pinMode(led9, OUTPUT);
 }
 
