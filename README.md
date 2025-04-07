@@ -1,6 +1,7 @@
 ***Footswitch MIDI feito com para Arduino UNO***
 
 Caso queira usar use os softwares você precisara dos aplicativos "Hairless MIDI", e o "LoopMIDI"
+
 **Em breve um tutorial de montadem e softwares necessarios!**
      
 O arquivo FootSwitch9btns.ino, contem o código para que você use 9 botôes com 9 leds, todos em modo stmop  
