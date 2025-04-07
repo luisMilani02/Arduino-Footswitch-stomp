@@ -32,7 +32,7 @@ void setup() {
   pinMode(led4, OUTPUT);
   // pinMode(led5, OUTPUT);
   // pinMode(led6, OUTPUT);
-  pinMode(led7, OUTPUT);
+  // pinMode(led7, OUTPUT);
   // pinMode(led8, OUTPUT);
   // pinMode(led9, OUTPUT);
 }
