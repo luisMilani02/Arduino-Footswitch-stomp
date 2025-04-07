@@ -1,18 +1,15 @@
 #define pin1 2
-#define led1 A5
 #define pin2 4
-#define led2 A4
 #define pin3 6
-#define led3 A3
 #define pin4 8
-#define led4 A2
-#define pin5 10
-// #define led5 
-#define pin6 12
-// #define led6 
+#define pin5 10 
+#define pin6 12 
 #define pin7 13
-// #define led7 A0
 
+#define led1 A5
+#define led2 A4
+#define led3 A3
+#define led4 A2
 
 void setup() {
   Serial.begin(38400);
@@ -23,18 +20,11 @@ void setup() {
   pinMode(pin5, INPUT_PULLUP);
   pinMode(pin6, INPUT_PULLUP);
   pinMode(pin7, INPUT_PULLUP);
-  // pinMode(pin8, INPUT_PULLUP);
-  // pinMode(pin9, INPUT_PULLUP);
   
   pinMode(led1, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(led3, OUTPUT);
   pinMode(led4, OUTPUT);
-  // pinMode(led5, OUTPUT);
-  // pinMode(led6, OUTPUT);
-  // pinMode(led7, OUTPUT);
-  // pinMode(led8, OUTPUT);
-  // pinMode(led9, OUTPUT);
 }
 
 void loop() {
@@ -100,32 +90,11 @@ void loop() {
     oldState7 = state7;
     delay(100);
   }
-
-  /*
-  static bool oldState8 = false;
-  bool state8 = !digitalRead(pin8);
-  if (oldState8 != state8) {
-    if (state8)CC8();
-    while (!digitalRead(pin8));
-    oldState8 = state8;
-    delay(100);
-  }
-
-  static bool oldState9 = false;
-  bool state9 = !digitalRead(pin9);
-  if (oldState9 != state9) {
-    if (state9)CC9();
-    while (!digitalRead(pin9));
-    oldState9 = state9;
-    delay(100);
-  }
-  */
-
   delay(10);
 }
 
 void CC1() {
-  byte tipo = 1;
+  byte tipo = 1; // first byte, pick one in range 0-127
   static bool V = false;
 
   if (V == true) {
@@ -134,16 +103,16 @@ void CC1() {
     digitalWrite(led1, HIGH);
   }
   
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
-  Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
+  Serial.write(V ? 0x00 : 0x7f);
   Serial.flush();
   V = !V;
   delay(300);
 }
 
 void CC2() {
-  byte tipo = 2;
+  byte tipo = 2; // first byte, pick one in range 0-127
   static bool V = false;
 
   if (V == true) {
@@ -152,8 +121,8 @@ void CC2() {
     digitalWrite(led2, HIGH);
   }
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
   Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   V = !V;
@@ -161,7 +130,7 @@ void CC2() {
 }
 
 void CC3() {
-  byte tipo = 3;
+  byte tipo = 3; // first byte, pick one in range 0-127
   static bool V = false;
   
   if (V == true) {
@@ -170,8 +139,8 @@ void CC3() {
     digitalWrite(led3, HIGH);
   }
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo); 
   Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   V = !V;
@@ -179,7 +148,7 @@ void CC3() {
 }
 
 void CC4() {
-  byte tipo = 4;
+  byte tipo = 4; // first byte, pick one in range 0-127
   static bool V = false;
   
   if (V == true) {
@@ -189,117 +158,40 @@ void CC4() {
   }
 
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
   Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   V = !V;
   delay(300);
 }
 
-// This in case you want it to be a switch
-/*
 void CC5() {
-  byte tipo = 5;
-  static bool V = false;
-  
-  if (V == true) {
-    digitalWrite(led5, LOW);
-  } else if (V == false) {
-    digitalWrite(led5, HIGH);
-  }
+  byte tipo = 5; // first byte, pick one in range 0-127
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
-  Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
-  Serial.flush();
-  V = !V;
-  delay(100);
-}
-
-void CC6() {
-  byte tipo = 6;
-  static bool V = false;
-  
-  if (V == true) {
-    digitalWrite(led6, LOW);
-  } else if (V == false) {
-    digitalWrite(led6, HIGH);
-  }
-
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
-  Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
-  Serial.flush();
-  V = !V;
-  delay(100);
-}
-*/
-
-void CC5() {
-  byte tipo = 5;
-
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
   Serial.write(0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   delay(100);
 }
 
 void CC6() {
-  byte tipo = 6;
+  byte tipo = 6; // first byte, pick one in range 0-127
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
   Serial.write(0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   delay(100);
 }
 
 void CC7() {
-  byte tipo = 7;
+  byte tipo = 7; // first byte, pick one in range 0-127
 
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
+  Serial.write(0xB0); // CC 1 channel
+  Serial.write(tipo);
   Serial.write(0x7f); //value. if each time should be same value than buy me a coffee
   Serial.flush();
   delay(100);
 }
-
-/*
-void CC8() {
-  byte tipo = 8;
-  static bool V = false;
-  
-  if (V == true) {
-    digitalWrite(led8, LOW);
-  } else if (V == false) {
-    digitalWrite(led8, HIGH);
-  }
-
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
-  Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
-  Serial.flush();
-  V = !V;
-  delay(100);
-}
-
-void CC9() {
-  byte tipo = 9;
-  static bool V = false;
-  
-  if (V == true) {
-    digitalWrite(, LOW);
-  } else if (V == false) {
-    digitalWrite(, HIGH);
-  }
-
-  Serial.write(0xB0);// CC 1 channel
-  Serial.write(tipo);// first byte, pick one in range 0-127
-  Serial.write(V ? 0x00 : 0x7f); //value. if each time should be same value than buy me a coffee
-  Serial.flush();
-  V = !V;
-  delay(100);
-}
-*/
