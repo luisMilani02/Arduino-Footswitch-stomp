@@ -11,7 +11,7 @@
 #define pin6 12
 // #define led6 
 #define pin7 13
-#define led7 A0
+// #define led7 A0
 
 
 void setup() {
